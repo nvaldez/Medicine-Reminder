@@ -1,0 +1,12 @@
+.header {
+  display: flex;
+  justify-content: space-between;
+  background-color: burlywood;
+  padding: 15px;
+}
+.link {
+  font-size: calc(5px + 2vmin);
+  color: #333333;
+  margin: 4%;
+  text-decoration: none;
+}

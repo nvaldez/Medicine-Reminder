@@ -1,0 +1,8 @@
+.cards {
+  width: 300px;
+}
+.home {
+  display: flex;
+  margin: 15px;
+  justify-content: space-between;
+}

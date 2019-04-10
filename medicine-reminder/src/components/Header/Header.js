@@ -13,13 +13,13 @@ class Header extends Component {
           <div>
             <nav>
               <ul>
-                <Link className='link' to='/home'>
+                <Link className='link' to='/'>
                   Home
                 </Link>
-                {/* <Link className='link' to='/medicine'>
+                <Link className='link' to='/medicine'>
                   Medicines
                 </Link>
-                <Link className='link' to='/doctor'>
+                {/* <Link className='link' to='/doctor'>
                   Doctor
                 </Link> */}
               </ul>
