@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { Route, Link } from 'react-router-dom';
+import Header from '../Header/Header';
 import Home from '../Home/Home';
 import axios from 'axios';
 import './App.css';
@@ -27,15 +28,7 @@ class App extends Component {
     console.log('App state', this.state.medicine);
     return (
       <div className='App'>
-        <nav>
-          <Link to='/'>
-            <img
-              src='https://en.bitcoin.it/w/images/en/2/29/BC_Logo_.png'
-              alt=''
-            />
-            <h1>Bitcoin prices</h1>
-          </Link>
-        </nav>
+        <Header />
         <main>
           <Route
             exact
