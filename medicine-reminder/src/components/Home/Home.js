@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
+import { withRouter } from 'react-router';
 import './Home.css';
 import {
   Card,
@@ -41,4 +42,4 @@ class Home extends Component {
   }
 }
 
-export default Home;
+export default withRouter(Home);

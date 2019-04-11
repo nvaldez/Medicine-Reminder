@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { Route, Switch } from 'react-router-dom';
+import { withRouter } from 'react-router';
 import Header from '../Header/Header';
 import EditMedicine from '../EditMedicine/EditMedicine';
 import MedicineDetails from '../MedicineDetails/MedicineDetails';
@@ -52,4 +53,4 @@ class App extends Component {
   }
 }
 
-export default App;
+export default withRouter(App);

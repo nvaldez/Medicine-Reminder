@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
-
 import {
   Card,
   CardHeader,
@@ -18,6 +17,8 @@ class MedicineDetails extends Component {
     this.state = {
       medicine: [],
     };
+
+    this.deleteMed = this.deleteMed.bind(this);
   }
   componentDidMount() {
     axios
@@ -29,6 +30,20 @@ class MedicineDetails extends Component {
         console.log(error);
       });
   }
+
+  deleteMed(evt) {
+    evt.preventDefault();
+
+    axios
+      .delete(`http://localhost:8000/medications/${this.props.match.params.id}`)
+      .then(res => {
+        this.props.history.push('/');
+      })
+      .catch(err => {
+        console.log(err);
+      });
+  }
+
   render() {
     return (
       this.props.medicine && (
@@ -45,7 +60,19 @@ class MedicineDetails extends Component {
               </CardText>
             </CardBody>
             <CardFooter>
-              <Link to={`/edit/${this.state.medicine.id}`}>Edit</Link>
+              <button className='btn btn-primary'>
+                <Link className='footer' to={`/edit/${this.state.medicine.id}`}>
+                  Edit
+                </Link>
+              </button>
+              {/* <Button className='footer' onSubmit={this.deleteMed}>
+                Delete
+              </Button> */}
+              <form onSubmit={this.deleteMed}>
+                <button type='submit' className='btn btn-danger'>
+                  Delete
+                </button>
+              </form>
             </CardFooter>
           </Card>
         </div>
