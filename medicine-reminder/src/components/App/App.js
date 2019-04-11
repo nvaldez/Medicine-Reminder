@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { Route, Switch } from 'react-router-dom';
 import Header from '../Header/Header';
+import EditMedicine from '../EditMedicine/EditMedicine';
 import MedicineDetails from '../MedicineDetails/MedicineDetails';
 import Home from '../Home/Home';
 import axios from 'axios';
@@ -36,9 +37,12 @@ class App extends Component {
             render={props => <Home {...props} {...this.state} />}
           />
           <Route
-            exact
             path='/medicine-detail/:id'
             render={props => <MedicineDetails {...props} {...this.state} />}
+          />
+          <Route
+            path='/edit/:id'
+            render={props => <EditMedicine {...props} />}
           />
           {/* <Route path='/medicine' component={Medicine} />
           <Route path='/doctor' component={Doctor} /> */}

@@ -1,4 +1,6 @@
 import React, { Component } from 'react';
+import { Link } from 'react-router-dom';
+
 import {
   Card,
   CardHeader,
@@ -43,7 +45,7 @@ class MedicineDetails extends Component {
               </CardText>
             </CardBody>
             <CardFooter>
-              <Button>Edit</Button>
+              <Link to={`/edit/${this.state.medicine.id}`}>Edit</Link>
             </CardFooter>
           </Card>
         </div>
