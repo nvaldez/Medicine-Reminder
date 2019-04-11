@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import axios from 'axios';
 
-class EditMedicine extends Component {
+class AddMedinene extends Component {
   constructor() {
     super();
     this.state = {
@@ -14,48 +14,61 @@ class EditMedicine extends Component {
     this.handleSubmit = this.handleSubmit.bind(this);
   }
 
-  componentDidMount() {
-    axios
-      .get(`http://localhost:8000/medications/${this.props.match.params.id}`)
-      .then(response => {
-        this.setState({ ...response.data });
-      })
-      .catch(function(error) {
-        console.log(error);
-      });
-  }
-
   handleChange(evt) {
     this.setState({
       [evt.target.name]: evt.target.value,
     });
-  }
-
-  updateMed() {
-    axios
-      .put(
-        'http://localhost:8000/medications/' + this.props.match.params.id,
-        this.state
-      )
-      .then(function(response) {})
-      .finally(() => {
-        this.props.history.push('/');
-      })
-      .finally(() => this.props.getMedicine());
+    console.log(this.state);
   }
 
   handleSubmit(evt) {
     evt.preventDefault();
-    this.updateMed();
+
+    const data = this.state;
+    fetch('http://localhost:8000/medications', {
+      method: 'POST',
+      headers: {
+        'Content-type': 'application/json',
+      },
+      body: JSON.stringify(data),
+    })
+      .then(response => response.json())
+      .then(result => {
+        this.props.history.push('/');
+        console.log(result);
+      })
+      .finally(() => this.props.getMedicine());
+
+    // axios({
+    //   method: 'post',
+    //   url: 'http://localhost:8000/medications',
+    //   data: {
+    //     name: this.state.name,
+    //     directions: this.state.directions,
+    //     servings: this.state.servings,
+    //     refill_left: this.refill_left,
+    //   },
+    // })
+    //   .post('http://localhost:8000/medications', {
+    //     name: this.state.name,
+    //     directions: this.state.directions,
+    //     servings: this.state.servings,
+    //     refill_left: this.refill_left,
+    //   })
+    //   .then(function(response) {
+    //     console.log(response);
+    //   })
+    //   .catch(function(error) {
+    //     console.log(error);
+    //   })
+    //   .finally(_ => this.props.history.push('/'));
   }
 
   render() {
-    console.log(this.state);
-
     return (
       <div className='card m-5'>
         <div className='card-body'>
-          <h1>Edit Medicine</h1>
+          <h1>Add Medicine</h1>
           <form onSubmit={this.handleSubmit}>
             <div className='form-group'>
               <label>Name</label>
@@ -65,7 +78,6 @@ class EditMedicine extends Component {
                   id='name'
                   name='name'
                   type='text'
-                  defaultValue={this.state.name}
                   onChange={this.handleChange}
                 />
               </p>
@@ -78,7 +90,6 @@ class EditMedicine extends Component {
                   id='directions'
                   name='directions'
                   type='text'
-                  placeholder={this.state.directions}
                   onChange={this.handleChange}
                 />
               </p>
@@ -91,7 +102,6 @@ class EditMedicine extends Component {
                   id='servings'
                   name='servings'
                   type='text'
-                  defaultValue={this.state.servings}
                   onChange={this.handleChange}
                 />
               </p>
@@ -104,13 +114,12 @@ class EditMedicine extends Component {
                   id='refill_left'
                   name='refill_left'
                   type='text'
-                  defaultValue={this.state.refill_left}
                   onChange={this.handleChange}
                 />
               </p>
             </div>
             <p>
-              <button className='btn btn-primary'>Update</button>
+              <button className='btn btn-primary'>Save</button>
             </p>
           </form>
         </div>
@@ -119,4 +128,4 @@ class EditMedicine extends Component {
   }
 }
 
-export default EditMedicine;
+export default AddMedinene;

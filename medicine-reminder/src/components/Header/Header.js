@@ -16,8 +16,8 @@ class Header extends Component {
                 <Link className='link' to='/'>
                   Home
                 </Link>
-                <Link className='link' to='/medicine'>
-                  Medicines
+                <Link className='link' to='/add-medicine'>
+                  Add Medicines
                 </Link>
                 {/* <Link className='link' to='/doctor'>
                   Doctor

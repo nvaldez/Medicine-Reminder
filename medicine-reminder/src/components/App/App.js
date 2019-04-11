@@ -4,6 +4,7 @@ import { withRouter } from 'react-router';
 import Header from '../Header/Header';
 import EditMedicine from '../EditMedicine/EditMedicine';
 import MedicineDetails from '../MedicineDetails/MedicineDetails';
+import AddMedicine from '../AddMedicine/AddMedinene';
 import Home from '../Home/Home';
 import axios from 'axios';
 import './App.css';
@@ -14,9 +15,11 @@ class App extends Component {
     this.state = {
       medicine: [],
     };
+
+    this.getMedicine = this.getMedicine.bind(this);
   }
 
-  componentDidMount() {
+  getMedicine() {
     axios
       .get('http://localhost:8000/medications')
       .then(response => {
@@ -26,8 +29,11 @@ class App extends Component {
         console.log(error);
       });
   }
+
+  componentDidMount() {
+    this.getMedicine();
+  }
   render() {
-    console.log('App state', this.state.medicine);
     return (
       <div className='App'>
         <Header />
@@ -39,11 +45,25 @@ class App extends Component {
           />
           <Route
             path='/medicine-detail/:id'
-            render={props => <MedicineDetails {...props} {...this.state} />}
+            render={props => (
+              <MedicineDetails
+                {...props}
+                {...this.state}
+                getMedicine={this.getMedicine}
+              />
+            )}
           />
           <Route
             path='/edit/:id'
-            render={props => <EditMedicine {...props} />}
+            render={props => (
+              <EditMedicine {...props} getMedicine={this.getMedicine} />
+            )}
+          />
+          <Route
+            path='/add-medicine'
+            render={props => (
+              <AddMedicine {...props} getMedicine={this.getMedicine} />
+            )}
           />
           {/* <Route path='/medicine' component={Medicine} />
           <Route path='/doctor' component={Doctor} /> */}

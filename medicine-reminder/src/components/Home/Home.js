@@ -13,7 +13,6 @@ import {
 
 class Home extends Component {
   render() {
-    console.log(this.props.medicine);
     const med = this.props.medicine.map((meds, index) => {
       return (
         <div className='home' key={index}>

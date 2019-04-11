@@ -1,13 +1,6 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
-import {
-  Card,
-  CardHeader,
-  CardText,
-  CardBody,
-  CardFooter,
-  Button,
-} from 'reactstrap';
+import { Card, CardHeader, CardText, CardBody, CardFooter } from 'reactstrap';
 import axios from 'axios';
 import './MedicineDetails.css';
 
@@ -41,7 +34,8 @@ class MedicineDetails extends Component {
       })
       .catch(err => {
         console.log(err);
-      });
+      })
+      .finally(() => this.props.getMedicine());
   }
 
   render() {
