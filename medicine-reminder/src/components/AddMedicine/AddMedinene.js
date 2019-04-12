@@ -25,7 +25,7 @@ class AddMedinene extends Component {
     evt.preventDefault();
 
     const data = this.state;
-    fetch('http://localhost:8000/medications', {
+    fetch('https://medicine-tracker.herokuapp.com/medications', {
       method: 'POST',
       headers: {
         'Content-type': 'application/json',
@@ -41,7 +41,7 @@ class AddMedinene extends Component {
 
     // axios({
     //   method: 'post',
-    //   url: 'http://localhost:8000/medications',
+    //   url: 'https://medicine-tracker.herokuapp.com/medications',
     //   data: {
     //     name: this.state.name,
     //     directions: this.state.directions,
@@ -49,7 +49,7 @@ class AddMedinene extends Component {
     //     refill_left: this.refill_left,
     //   },
     // })
-    //   .post('http://localhost:8000/medications', {
+    //   .post('https://medicine-tracker.herokuapp.com/medications', {
     //     name: this.state.name,
     //     directions: this.state.directions,
     //     servings: this.state.servings,

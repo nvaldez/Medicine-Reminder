@@ -6,6 +6,7 @@ import EditMedicine from '../EditMedicine/EditMedicine';
 import MedicineDetails from '../MedicineDetails/MedicineDetails';
 import AddMedicine from '../AddMedicine/AddMedinene';
 import Home from '../Home/Home';
+import serverUrl from '../constants';
 import axios from 'axios';
 import './App.css';
 
@@ -21,7 +22,7 @@ class App extends Component {
 
   getMedicine() {
     axios
-      .get('http://localhost:8000/medications')
+      .get('https://medicine-tracker.herokuapp.com/medications')
       .then(response => {
         this.setState({ medicine: response.data });
       })

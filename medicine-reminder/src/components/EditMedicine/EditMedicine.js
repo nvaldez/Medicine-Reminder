@@ -16,7 +16,11 @@ class EditMedicine extends Component {
 
   componentDidMount() {
     axios
-      .get(`http://localhost:8000/medications/${this.props.match.params.id}`)
+      .get(
+        `https://medicine-tracker.herokuapp.com/medications/${
+          this.props.match.params.id
+        }`
+      )
       .then(response => {
         this.setState({ ...response.data });
       })
@@ -34,7 +38,8 @@ class EditMedicine extends Component {
   updateMed() {
     axios
       .put(
-        'http://localhost:8000/medications/' + this.props.match.params.id,
+        'https://medicine-tracker.herokuapp.com/medications/' +
+          this.props.match.params.id,
         this.state
       )
       .then(function(response) {})

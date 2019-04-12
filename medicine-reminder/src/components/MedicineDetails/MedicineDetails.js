@@ -15,7 +15,11 @@ class MedicineDetails extends Component {
   }
   componentDidMount() {
     axios
-      .get(`http://localhost:8000/medications/${this.props.match.params.id}`)
+      .get(
+        `https://medicine-tracker.herokuapp.com/medications/${
+          this.props.match.params.id
+        }`
+      )
       .then(response => {
         this.setState({ medicine: response.data });
       })
@@ -28,7 +32,11 @@ class MedicineDetails extends Component {
     evt.preventDefault();
 
     axios
-      .delete(`http://localhost:8000/medications/${this.props.match.params.id}`)
+      .delete(
+        `https://medicine-tracker.herokuapp.com/medications/${
+          this.props.match.params.id
+        }`
+      )
       .then(res => {
         this.props.history.push('/');
       })
