@@ -7,3 +7,7 @@
   margin: 7px;
   color: white;
 }
+.footer-btn {
+  display: flex;
+  justify-content: space-between;
+}

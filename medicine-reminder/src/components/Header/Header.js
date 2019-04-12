@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
+import Logo from '../../images/medicine.png';
 import './Header.css';
 
 class Header extends Component {
@@ -8,7 +9,9 @@ class Header extends Component {
       <div>
         <div className='header'>
           <div>
-            <h1>Logo</h1>
+            <Link className='link' to='/'>
+              Remember
+            </Link>
           </div>
           <div>
             <nav>

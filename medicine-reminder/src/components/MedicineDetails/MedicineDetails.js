@@ -61,20 +61,23 @@ class MedicineDetails extends Component {
                 Refill Left: {this.state.medicine.refill_left}
               </CardText>
             </CardBody>
-            <CardFooter>
-              <button className='btn btn-primary'>
-                <Link className='footer' to={`/edit/${this.state.medicine.id}`}>
-                  Edit
-                </Link>
-              </button>
-              {/* <Button className='footer' onSubmit={this.deleteMed}>
-                Delete
-              </Button> */}
-              <form onSubmit={this.deleteMed}>
-                <button type='submit' className='btn btn-danger'>
-                  Delete
+            <CardFooter className='footer-btn'>
+              <div>
+                <button className='btn btn-primary'>
+                  <Link
+                    className='footer'
+                    to={`/edit/${this.state.medicine.id}`}>
+                    Edit
+                  </Link>
                 </button>
-              </form>
+              </div>
+              <div>
+                <form onSubmit={this.deleteMed}>
+                  <button type='submit' className='btn btn-danger'>
+                    Delete
+                  </button>
+                </form>
+              </div>
             </CardFooter>
           </Card>
         </div>
