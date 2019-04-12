@@ -21,9 +21,15 @@ class Home extends Component {
               <h3>{meds.name}</h3>
             </CardHeader>
             <CardBody>
-              <CardText>Directions: {meds.directions}</CardText>
-              <CardText>Servings: {meds.servings}</CardText>
-              <CardText>Refill Left: {meds.refill_left} </CardText>
+              <CardText>
+                <h5>Directions:</h5> {meds.directions}
+              </CardText>
+              <CardText>
+                <h5>Servings:</h5> {meds.servings}
+              </CardText>
+              <CardText>
+                <h5>Refill Left:</h5> {meds.refill_left}{' '}
+              </CardText>
             </CardBody>
             <CardFooter>
               <Link to={'/medicine-detail/' + meds.id}>More Details</Link>
