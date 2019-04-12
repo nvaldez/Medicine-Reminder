@@ -24,7 +24,6 @@ class Home extends Component {
               <CardText>Directions: {meds.directions}</CardText>
               <CardText>Servings: {meds.servings}</CardText>
               <CardText>Refill Left: {meds.refill_left} </CardText>
-              <CardText>Refill Left: {meds.refill_left}</CardText>
             </CardBody>
             <CardFooter>
               <Link to={'/medicine-detail/' + meds.id}>More Details</Link>
